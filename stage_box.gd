@@ -1,57 +1,48 @@
 extends Button
 
-# Asumsi path ini benar
-const FULL_STAR = preload("res://asset/stage/star.png")
+const FULL_STAR = preload("res://asset/stage/star3.png") 
 const EMPTY_STAR = preload("res://asset/stage/starkosong.png") 
 
-# Deklarasikan variabel tanpa inisialisasi @onready
-var stars = []
+@onready var star_container = $VBoxContainer/StarContainer
+@onready var level_image = $VBoxContainer/LevelImage
 @onready var level_name = $VBoxContainer/LevelName
 @onready var lock_overlay = $LockOverlay
 
-
-#func _ready():
-    # KOREKSI UTAMA: Dapatkan referensi node secara manual di _ready().
-    # Fungsi get_node_internal() lebih stabil untuk node anak langsung.
-    #stars.append(get_node_internal("VBoxContainer/StarContainer/Star1"))
-    #stars.append(get_node_internal("VBoxContainer/StarContainer/Star2"))
-    #stars.append(get_node_internal("VBoxContainer/StarContainer/Star3"))
-
 func setup_stage(data):
-    # Cek untuk memastikan array bintang sudah terisi dan tidak ada null
-    if stars.is_empty() or stars.has(null):
-        # Jika masih gagal (salah satu bintang null), hentikan fungsi.
-        print("ERROR: Node bintang gagal dimuat. Cek stage_box.tscn.")
-        return
-
-    # Setel Nama Stage
     level_name.text = data.name
+    level_image.texture = data.image
     
-    # Atur Status Terkunci
+    # Ambil 3 node bintang pertama aja (Star1, Star2, Star3)
+    # Ini buat mastiin kalo di editor lu ada 9 bintang, yang dipake cuma 3
+    var stars_nodes = star_container.get_children()
+    
+    # Sembunyikan semua bintang dulu buat reset
+    for s in stars_nodes:
+        s.visible = false
+    
+    # Update maksimal 3 bintang
+    var collected_stars = data.get("stars", 0)
+    for i in range(3):
+        if i < stars_nodes.size():
+            var star_node = stars_nodes[i]
+            star_node.visible = true # Munculin cuma 3 biji
+            if i < collected_stars:
+                star_node.texture = FULL_STAR
+            else:
+                star_node.texture = EMPTY_STAR
+
+    # Logika Kunci
     if data.unlocked:
         lock_overlay.visible = false
         disabled = false
+        star_container.modulate.a = 1.0 # Bintang terang
     else:
         lock_overlay.visible = true
         disabled = true
-        
-    # Atur Status Bintang (Logika 0 Bintang)
-    var collected_stars = data.stars
-    
-    for i in range(stars.size()): 
-        # Cek jika bintang sudah terisi dengan benar sebelum mencoba mengatur texture
-        if stars[i]:
-            if i < collected_stars:
-                # Bintang penuh jika i < jumlah bintang yang dikumpulkan
-                stars[i].texture = FULL_STAR
-            else:
-                # Bintang kosong jika i >= jumlah bintang yang dikumpulkan
-                stars[i].texture = EMPTY_STAR 
+        star_container.modulate.a = 0.5 # Bintang redup tapi tetep keliatan 3 biji kosong
 
-    # Hubungkan sinyal (jika stage tidak terkunci)
-    if data.unlocked:
-        pressed.connect(_on_stage_box_pressed.bind(data.path))
+    if data.unlocked and not pressed.is_connected(_on_pressed.bind(data.path)):
+        pressed.connect(_on_pressed.bind(data.path))
 
-func _on_stage_box_pressed(scene_path):
-    print("Memuat Stage: " + scene_path)
-    # Ganti scene di sini
+func _on_pressed(path):
+    get_tree().change_scene_to_file(path)

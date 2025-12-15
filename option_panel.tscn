@@ -23,10 +23,10 @@ color = Color(0, 0, 0, 0.47058824)
 
 [node name="Panel_Container" type="PanelContainer" parent="Color_Rect"]
 layout_mode = 1
-offset_left = 420.0
-offset_top = 200.0
-offset_right = 720.0
-offset_bottom = 368.0
+offset_left = 696.0
+offset_top = 384.0
+offset_right = 1210.0
+offset_bottom = 748.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Color_Rect/Panel_Container"]
 layout_mode = 2

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq8785tfhf4ny"
-path="res://.godot/imported/starkosong.png-d1ac9eb2f14e177d5c2d6336153b5c70.ctex"
+uid="uid://cd4d26f2on2yi"
+path="res://.godot/imported/stage2image.png-05088d3fa4f18262143c8098d2dded90.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/stage/starkosong.png"
-dest_files=["res://.godot/imported/starkosong.png-d1ac9eb2f14e177d5c2d6336153b5c70.ctex"]
+source_file="res://asset/stage/stage2image.png"
+dest_files=["res://.godot/imported/stage2image.png-05088d3fa4f18262143c8098d2dded90.ctex"]
 
 [params]
 

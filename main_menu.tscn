@@ -23,11 +23,10 @@ script = ExtResource("1_06t4h")
 
 [node name="LoadingPanel" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -767.0
-offset_bottom = -432.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rhts7")
@@ -36,45 +35,45 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_rhts7")
 layout_mode = 0
 offset_left = -10.0
 offset_top = -159.0
-offset_right = 1167.0
-offset_bottom = 774.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = ExtResource("2_7vrkn")
 
 [node name="LoadingBar" type="ProgressBar" parent="LoadingPanel"]
 layout_mode = 0
-offset_left = 375.0
-offset_top = 520.0
-offset_right = 775.0
-offset_bottom = 547.0
+offset_left = 628.0
+offset_top = 855.0
+offset_right = 1442.0
+offset_bottom = 912.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_nlkkf")
 theme_override_font_sizes/font_size = 35
 
 [node name="LoadingLabel" type="Label" parent="LoadingPanel"]
 layout_mode = 0
-offset_left = 539.0
-offset_top = 552.0
-offset_right = 614.0
-offset_bottom = 575.0
+offset_left = 988.0
+offset_top = 908.0
+offset_right = 1113.0
+offset_bottom = 968.0
 theme_override_fonts/font = ExtResource("3_nlkkf")
 theme_override_font_sizes/font_size = 35
 text = "Loading..."
 
 [node name="MenuBackground" type="TextureRect" parent="."]
-layout_mode = 0
+layout_mode = 1
 offset_left = -9.0
 offset_top = -91.0
-offset_right = 1173.0
-offset_bottom = 768.0
+offset_right = 1921.0
+offset_bottom = 1081.0
 texture = ExtResource("3_fu7sn")
 
 [node name="MenuContainer" type="VBoxContainer" parent="."]
 modulate = Color(1, 1, 1, 0.003921569)
 layout_mode = 1
-offset_left = 448.0
-offset_top = 395.0
-offset_right = 698.0
-offset_bottom = 595.0
+offset_left = 675.0
+offset_top = 714.0
+offset_right = 1303.0
+offset_bottom = 1009.0
 theme_override_constants/separation = 20
 alignment = 1
 
