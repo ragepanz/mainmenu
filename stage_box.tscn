@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://stagebox"]
 
 [ext_resource type="Script" uid="uid://dgw1i6rpnowie" path="res://stage_box.gd" id="1_24483"]
-[ext_resource type="Texture2D" uid="uid://dq8785tfhf4ny" path="res://asset/stage/starkosong.png" id="2_92j4d"]
-[ext_resource type="Texture2D" uid="uid://c5ma8wqvjscdh" path="res://asset/stage/lock.png" id="3_n4g8j"]
+[ext_resource type="Texture2D" uid="uid://cj77c0wjc3gfv" path="res://asset/stage/starkosong.png" id="2_92j4d"]
+[ext_resource type="Texture2D" uid="uid://s4df5vf77ok2" path="res://asset/stage/lock.png" id="3_n4g8j"]
 
 [node name="StageBox" type="Button"]
 custom_minimum_size = Vector2(220, 300)
@@ -18,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/separation = 10
 alignment = 1
 
@@ -49,6 +50,7 @@ stretch_mode = 5
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 expand_mode = 1
 stretch_mode = 6
 

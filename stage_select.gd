@@ -12,7 +12,7 @@ var stages_data = [
         "stars": 0, # Default tanpa bintang
         "unlocked": true,
         "image": preload("res://asset/stage/stage1image.png"),
-        "path": "res://scenes/stage_1.tscn"
+        "path": "res://scenes/main.tscn"
     },
     {
         "id": 2,
